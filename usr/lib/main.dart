@@ -5,7 +5,7 @@ import 'screens/home_screen.dart';
 import 'screens/request_screen.dart';
 import 'screens/messaging_screen.dart';
 import 'screens/provider_panel_screen.dart';
-import 'models/user_model.dart';
+import 'app_state.dart';
 
 void main() {
   runApp(const BambifixApp());
@@ -43,25 +43,5 @@ class BambifixApp extends StatelessWidget {
         },
       ),
     );
-  }
-}
-
-class AppState extends ChangeNotifier {
-  bool _isLoggedIn = false;
-  UserRole _userRole = UserRole.client;
-
-  bool get isLoggedIn => _isLoggedIn;
-  UserRole get userRole => _userRole;
-
-  void login(UserRole role) {
-    _isLoggedIn = true;
-    _userRole = role;
-    notifyListeners();
-    // NOTE: Actual authentication requires Supabase backend - this is UI simulation only
-  }
-
-  void logout() {
-    _isLoggedIn = false;
-    notifyListeners();
   }
 }
